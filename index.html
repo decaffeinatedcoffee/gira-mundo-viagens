@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lexend+Giga:wght@200&family=Montserrat&display=swap" rel="stylesheet"><meta property="og:url"                content="https://decaffeinatedcoffee.github.io/cheese" />
+<meta property="og:title"              content="Gira Mundo Viagens" />
+<meta property="og:description"        content="Os melhores pacotes para os melhores clientes." />
+<meta property="og:image"              content="https://giramundoviagens.vercel.app/assets/logo_full.png" />
+
+    <title>Gira Mundo Viagens</title>
+</head>
+
+<style>
+body{
+    margin: 0;
+    padding: 0;
+}
+.header video{
+    width: 100vw;
+    height: 100%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  filter: brightness(0.4);
+}
+.headerdata{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    
+}
+.headerdata img{
+    width: 100px;
+    float: left;
+    margin-left: 3vw;
+    margin-top: 2vh;
+}
+.eph{
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Lexend Giga', sans-serif;
+    margin-top: 3vh;
+}
+
+.inpt input, select{
+width: 10vw;
+height: 50px;
+background-color: transparent;
+border: none;
+outline: none;
+border-bottom: 1px solid white;
+color: white;
+font-size: 17px;
+margin-left: 4vw;
+margin-top: 15vh;
+}
+.inpt select{
+    margin-left: 6vw;
+    margin-right:  6vw;
+}
+.inpt option{
+    color: black;
+}
+.inpt{
+    float: left;
+    margin-left: 0px;
+    width: 100vw;
+    height: 70vh;
+}
+.inpt input::placeholder {
+  color: white;
+  opacity: 1;
+}
+.inpt input:-ms-input-placeholder { 
+  color: white;
+}
+
+.inpt input::-ms-input-placeholder {
+  color: white;
+}
+
+.inpt button{
+ display: block;
+ margin: 0 auto;
+ width: 150px;
+ height: 50px;
+ background-color: rgb(23, 90, 153);
+ font-family: 'Lato', sans-serif;
+ font-weight: 700;
+ color: white;
+ border: none;
+ border-radius: 25px;
+ margin-top: 10vh;
+ font-size: 15px;
+ cursor: pointer;
+}
+
+.inpt button:hover{
+ background-color:rgb(16, 56, 94);   
+}
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.checkallp{
+    font-family: 'Lexend Giga', sans-serif;
+    font-weight: 700;
+}
+.checkall{
+    margin-top: 15px !important;
+}
+  /*Mobile devices style*/
+  @media only screen and (pointer: coarse){
+    .header video{
+    width: 100%;
+  height: 100%;
+  object-fit:cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  filter: brightness(0.4);
+}
+
+.headerdata{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+}
+
+.eph{
+    font-size: 15px;
+}
+
+.inpt  input, select{
+width: 80px;
+height: 50px;
+background-color: transparent;
+border: none;
+outline: none;
+border-bottom: 1px solid white;
+color: white;
+font-size: 17px;
+margin-left: 2vw;
+margin-top: 5vh;
+}
+
+.inpt select{
+    margin-left: 10px;
+    margin-right:  10px;
+}
+.inputdate{
+    display: block;
+    margin: 0 auto;
+}
+}
+</style>
+
+<body>
+<div class="header">
+<video src="assets/vid1.mp4" autoplay muted loop></video>
+<div class="headerdata">
+<img src="assets/logo_full.png" alt="Logo">
+
+<div class="inpt">
+<p class="eph">Viaje com vantagens e economia, viaje com a Gira Mundo.</p>
+    <input type="text" placeholder="Origem" id="origem">
+    <input type="text" placeholder="Destino" id="destino">
+    <select id="viajantes">
+        <option value="1" selected>1 Viajante</option>
+        <option value="2">2 Viajantes</option>
+        <option value="3">3 Viajantes</option>
+        <option value="4">4 Viajantes</option>
+    </select>
+    <input type="date" id="datap">
+    <input type="date" id="datar">
+    <button onclick="checkForm()">Procurar pacotes</button>
+    <p class="checkallp">Ou</p>
+    <button class="checkall" onclick="location.replace('/pacotes.html?all=true')">Ver todos os pacotes</button>
+</div>
+</div>
+</div>
+</body>
+
+<script>
+
+    function checkForm(){
+    let origem = document.getElementById("origem").value;
+    let destino =  document.getElementById("destino").value;
+    let viajantes = document.getElementById("viajantes").value;
+    let datap =  document.getElementById("datap").value;
+    let datar = document.getElementById("datar").value;
+    document.getElementById("origem").style.borderBottom = "1px solid white";
+    document.getElementById("destino").style.borderBottom = "1px solid white";
+    document.getElementById("viajantes").style.borderBottom = "1px solid white";
+    document.getElementById("datap").style.borderBottom = "1px solid white";
+    document.getElementById("datar").style.borderBottom = "1px solid white";
+    if(origem && destino && viajantes){
+    location.replace(`/pacotes.html?o=${origem}&d=${destino}&v=${viajantes}&dp=${datap}&dr=${datar}`);
+    }else{
+    if(!origem || !isNaN(origem)){
+        document.getElementById("origem").style.borderBottom = "1px solid red";
+    }
+    if(!destino || !isNaN(destino)){
+        document.getElementById("destino").style.borderBottom = "1px solid red";
+    }
+    if(!viajantes){
+        document.getElementById("viajantes").style.borderBottom = "1px solid red";
+    }
+    console.log(new Date(datap).getTime())
+    if(new Date(datap).getTime() < new Date().getTime()){
+        document.getElementById("datap").style.borderBottom = "1px solid red";
+    }
+    if(new Date(datar).getTime() < new Date().getTime()){
+        document.getElementById("datar").style.borderBottom = "1px solid red";
+    }
+    }
+    }
+</script>
+</html>

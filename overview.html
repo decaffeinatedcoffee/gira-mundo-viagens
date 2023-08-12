@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lexend+Giga:wght@200&family=Montserrat&display=swap" rel="stylesheet">
+<meta property="og:title"              content="Gira Mundo Viagens" />
+<meta property="og:description"        content="Os melhores pacotes para os melhores clientes." />
+<meta property="og:image"              content="https://giramundoviagens.vercel.app/assets/logo_full.png" />
+    <title>Gira Mundo Viagens</title>
+</head>
+<style>
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: rgb(58,76,81);
+    background: linear-gradient(180deg, rgba(58,76,81,1) 25%, rgba(101,97,94,1) 69%, rgba(80,77,75,1) 90%);
+    overflow: hidden;
+}
+.parent{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+.header img{
+    width: 100px;
+    margin-left: 3vw;
+    margin-top: 2vh;
+}
+.finaloverview{
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: white;
+    width: 450px;
+    height: 450px;
+    text-align: center;
+    border: 1px solid white;
+    margin-top: 10px;
+}
+.fovtt{
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.descricaoov, .transporteov{
+width: 100%;
+height: 150px;
+margin-top: 15px;
+}
+.transporteov{
+    border-top: 1px solid rgb(182, 182, 182);
+}
+.ovdimg{
+    float: left;
+    width: 140px;
+    height: 140px;
+    margin-top: 5px;
+    margin-left: 10px;
+    border-radius: 12px;
+}
+.ovdesctext{
+    float: left;
+    margin-left: 10px;
+}
+.ovct{
+    font-size: 20px;
+    height: 2px;
+    margin-left: 9px;
+}
+.valorov p{
+    font-size: 15px;
+    float: left;
+    margin-left: 10px;
+    height: 0px;
+}
+.ovv{
+    color: rgb(221, 62, 235);
+}
+.descontosov p{
+    font-size: 15px;
+    float: left;
+    margin-left: 9px;
+    height: 7px;
+}
+.ovd{
+    color: rgb(68, 216, 68);
+}
+.ovttv{
+    float: left;
+    margin-left: 10px;
+}
+.ttovtp{
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    margin-top: 7px;
+    height: 10px;
+}
+.partidafov, .imgtpov, .chegadafov{
+    float: left;
+}
+.imgtpov, .chegadafov{
+margin-left: 40px;
+}
+.imgtpov img{
+ width: 40px;
+ margin-top: 20px;
+}
+.centertpov{
+    display: flex;
+    justify-content: center;
+}
+.tptpov{
+height: 1px;
+}
+.airport{
+ font-size: 17px;
+ height: 7px;
+}
+.airportdate{
+    font-size: 13px;
+    font-family: 'Lato', sans-serif;
+    height: 5px;
+}
+.gotopayment{
+    margin-top: 20px;
+    background-color: rgb(23, 90, 153);
+    border: none;
+    height: 40px;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+}
+.gotopayment:hover{
+ background-color:rgb(16, 56, 94);   
+}
+
+
+ /*Mobile devices style*/
+ @media only screen and (pointer: coarse){
+    .finaloverview{
+    width: 350px;
+    height: 420px;
+    margin-top: 5vh;
+}
+.ovdimg{
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+.ovdesctext{
+    float: left;
+    margin-left: 10px;
+    margin-top: -20px;
+}
+.descontosov p{
+    height: 2px;
+}.transporteov{
+margin-top: -10px;
+}
+ }
+
+
+
+</style>
+<body>
+    <div class="parent">
+    <div class="header">
+        <img src="assets/logo_full.png" alt="Logo">
+        </div>
+        <div class="finaloverview">
+          <p class="fovtt">Visão Geral</p>
+          <div class="descricaoov">
+          <img id="imagempacote" alt="Foto Destino" class="ovdimg">
+          <div class="ovdesctext">
+           <p class="ovct" id="destino"></p>
+           <div class="valorov">
+           <p class="ovpc" id="valortotal"></p>
+           <p class="ovv" id="viajantes"></p>
+          </div>
+           <div class="descontosov">
+           <p class="ovd">Descontos:</p>
+           <p class="ovdv" id="descontos"></p>
+          </div>
+            <p class="ovttv" id="totalfinal"></p>
+          </div>
+          </div>  
+          <div class="transporteov">
+            <p class="ttovtp">Transporte</p>
+            <p class="tptpov" id="tptype"></p>
+        <div class="centertpov">
+        <div class="partidafov">
+        <p class="airport" id="aeropartida"></p>
+         <p class="airportdate" id="datapartida"></p>
+         <p class="airportdate" id="horapartida"></p>
+        </div>
+
+       <div class="imgtpov">
+        <img src="/assets/plane.png">
+       </div>
+
+
+       <div class="chegadafov">
+        <p class="airport" id="aerodestino"></p>
+        <p class="airportdate" id="datachegada"></p>
+        <p class="airportdate" id="horachegada"></p>
+       </div>
+
+       </div>
+
+
+    <button class="gotopayment" onclick="alert(`Quem sabe um dia? (:`)">Continuar para o pagamento</button>
+        </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let urlParams = new URLSearchParams(window.location.search);
+    let pacote = urlParams.get('p');
+
+    fetch('./db/pacotes.json')
+    .then((response) => response.json())
+    .then(function(json){
+       for(var i = 0; i < json.length; i++){
+       if(json[i].id == pacote){
+        document.getElementById("imagempacote").src = json[i].imagem;
+        document.getElementById("destino").innerText = `${json[i].destino} - ${json[i].pais}`;
+        document.getElementById("valortotal").innerText = `R$${json[i].preco}`;
+        document.getElementById("viajantes").innerText = `(${json[i].viajantes} viajantes)`;
+        document.getElementById("descontos").innerText = `R$${json[i].descontos.toFixed(2)}`;
+        let totaldescontado = (json[i].preco - json[i].descontos).toFixed(2);
+        document.getElementById("totalfinal").innerText = `Total: R$${totaldescontado}`;
+        document.getElementById('tptype').innerText = `${json[i].transporte} - ${json[i].duracao} horas`;
+        document.getElementById("aeropartida").innerText = json[i].aeroporto.partida;
+        document.getElementById("aerodestino").innerText = json[i].aeroporto.destino;
+        document.getElementById("datapartida").innerText = json[i].checkin;
+        document.getElementById("horapartida").innerText = json[i].horarios.partida;
+        var dataformatada = json[i].checkin.split("/");
+        let timestampPartida = new Date(`${dataformatada[1]}/${dataformatada[0]}/${dataformatada[2]}, ${json[i].horarios.partida}`).getTime();
+        let datachegada = new Date(timestampPartida + (json[i].duracao * 60 * 60 * 1000));
+        let ddch = datachegada.getDate();
+        if(ddch < 10){
+            ddch = "0" + ddch;
+        }
+        let mmch = datachegada.getMonth() + 1;
+        if(mmch < 10){
+            mmch = "0" + mmch;
+        }
+        let hhch = datachegada.getHours();
+        if(hhch < 10){
+            hhch = "0" + hhch;
+        }
+        let mMch = datachegada.getMonth();
+        if(mMch < 10){
+            mMch = "0" + mMch;
+        }
+        let stringhorachegada = `${hhch}:${mMch}`;
+        let stringdatachegada = `${ddch}/${mmch}/${datachegada.getFullYear()}`;
+        document.getElementById("datachegada").innerText = stringdatachegada;
+        document.getElementById("horachegada").innerText = stringhorachegada;
+       }
+    }
+    });
+</script>
+</html>
