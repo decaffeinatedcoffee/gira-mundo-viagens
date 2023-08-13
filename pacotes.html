@@ -45,6 +45,15 @@ body{
     text-align: center;
 }
 
+.nopctfnd{
+    color: white;
+    font-size: 17px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(247, 55, 55);
+    display: none;
+}
 .pctbox{
     display: flex;
     justify-content: center;
@@ -111,6 +120,7 @@ body{
     transform: scale(1);
 }
   }
+
 </style>
 
 <body>
@@ -122,6 +132,7 @@ body{
 
 <div class="pacotes">
 <p class="pctds">Nossos melhores pacotes, para os melhores clientes.</p>
+<p class="nopctfnd" id="nopctfnd">Nenhum pacote encontrado para os filtros aplicados, mostrando todos os pacotes.</p>
 <div class="pctbox" id="pctbox">
 </div>
 </div>
@@ -145,14 +156,18 @@ let all = urlParams.get("all");
             loadpage(json, i);
        }else if(json[i].viajantes == viajantessel && json[i].pais.toLowerCase() == destino.toLowerCase()){
         loadpage(json, i);
-       }
+       }else{
+    document.getElementById("nopctfnd").style.display = "block";
+    loadpage(json, i);
+   }
     }
+
     });
 
 
     function loadpage(json, i){
         let npct = document.createElement("div");
-        npct.setAttribute("onclick", `location.replace("/overview.html?p=${json[i].id}")`);
+        npct.setAttribute("onclick", `window.open("/overview.html?p=${json[i].id}")`);
         let pctimg = document.createElement("img");
         pctimg.src = json[i].imagem;
         pctimg.classList.add("pctimg");
