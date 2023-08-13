@@ -183,7 +183,7 @@ margin-top: 5vh;
     <input type="date" id="datar">
     <button onclick="checkForm()">Procurar pacotes</button>
     <p class="checkallp">Ou</p>
-    <button class="checkall" onclick="location.replace('/pacotes.html?all=true')">Ver todos os pacotes</button>
+    <button class="checkall" onclick="window.open('/pacotes.html?all=true')">Ver todos os pacotes</button>
 </div>
 </div>
 </div>
@@ -203,7 +203,7 @@ margin-top: 5vh;
     document.getElementById("datap").style.borderBottom = "1px solid white";
     document.getElementById("datar").style.borderBottom = "1px solid white";
     if(origem && destino && viajantes){
-    location.replace(`/pacotes.html?o=${origem}&d=${destino}&v=${viajantes}&dp=${datap}&dr=${datar}`);
+    window.open(`/pacotes.html?o=${origem}&d=${destino}&v=${viajantes}&dp=${datap}&dr=${datar}`);
     }else{
     if(!origem || !isNaN(origem)){
         document.getElementById("origem").style.borderBottom = "1px solid red";
